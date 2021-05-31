@@ -24,6 +24,16 @@ const InstructorNav = () => {
           Create Course
         </a>
       </Link>
+
+      <Link href="/instructor/revenue">
+        <a
+          className={`nav-link ${
+            current === '/instructor/revenue' && 'active'
+          }`}
+        >
+          Check Revenue
+        </a>
+      </Link>
     </div>
   )
 }

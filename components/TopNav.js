@@ -34,7 +34,7 @@ const TopNav = () => {
     window.localStorage.removeItem('user')
     const { data } = await axios.get('/api/logout')
     toast(data.message)
-    router.push('/login')
+    setTimeout('location.reload()', 3000)
   }
 
   return (
@@ -45,7 +45,7 @@ const TopNav = () => {
         icon={<AppstoreOutlined />}
       >
         <Link href="/">
-          <a>App</a>
+          <a>ホーム</a>
         </Link>
       </Item>
 
@@ -56,7 +56,7 @@ const TopNav = () => {
           icon={<CarryOutOutlined />}
         >
           <Link href="/instructor/course/create">
-            <a>Create Course</a>
+            <a>講座を開設する</a>
           </Link>
         </Item>
       ) : (
@@ -66,7 +66,7 @@ const TopNav = () => {
           icon={<TeamOutlined />}
         >
           <Link href="/user/become-instructor">
-            <a>Become Instructor</a>
+            <a>先生になる</a>
           </Link>
         </Item>
       )}
@@ -79,7 +79,7 @@ const TopNav = () => {
             icon={<LoginOutlined />}
           >
             <Link href="/login">
-              <a>Login</a>
+              <a>ログイン</a>
             </Link>
           </Item>
 
@@ -89,7 +89,7 @@ const TopNav = () => {
             icon={<UserAddOutlined />}
           >
             <Link href="/register">
-              <a>Register</a>
+              <a>ユーザー登録</a>
             </Link>
           </Item>
         </>
@@ -104,10 +104,10 @@ const TopNav = () => {
           <ItemGroup>
             <Item key="/user">
               <Link href="/user">
-                <a>Dashboard</a>
+                <a>ダッシュボード</a>
               </Link>
             </Item>
-            <Item onClick={logout}>Logout</Item>
+            <Item onClick={logout}>ログアウト</Item>
           </ItemGroup>
         </SubMenu>
       )}
@@ -120,7 +120,7 @@ const TopNav = () => {
           className="float-right"
         >
           <Link href="/instructor">
-            <a>Instructor</a>
+            <a>先生</a>
           </Link>
         </Item>
       )}

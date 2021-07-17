@@ -38,7 +38,7 @@ const UserIndexPage = () => {
           className="d-flex justify-content-center display-1 text-danger p-5"
         />
       )}
-      <h1 className="jumbotron text-center square">User Dashboard</h1>
+      <h1 className="jumbotron text-center square">ダッシュボード</h1>
 
       {/* show list of courses */}
       {courses &&
@@ -58,7 +58,7 @@ const UserIndexPage = () => {
                         <h5 className="mt-2 text-primary">{course.name}</h5>
                       </a>
                     </Link>
-                    <p className="mt-n2">{course.lessons.length} Lessons</p>
+                    <p className="mt-n2">{course.lessons.length} レッスン</p>
                     <p className="text-muted mt-n2">
                       By {course.instructor.name}
                     </p>

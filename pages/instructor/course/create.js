@@ -19,7 +19,8 @@ const CourseCreate = () => {
   })
   const [image, setImage] = useState({})
   const [preview, setPreview] = useState('')
-  const [uploadButtonText, setUploadButtonText] = useState('Upload Image')
+  const [uploadButtonText, setUploadButtonText] =
+    useState('画像をアップロードする')
 
   const router = useRouter()
 
@@ -70,7 +71,7 @@ const CourseCreate = () => {
     // console.log(values)
     try {
       const { data } = await axios.post('/api/course', { ...values, image })
-      toast('Great! Now you can start adding lessons')
+      toast('素晴らしい！続いてレッスンを追加しましょう！')
       router.push('/instructor')
     } catch (err) {
       toast(err.response.data)
@@ -79,7 +80,7 @@ const CourseCreate = () => {
 
   return (
     <InstructorRoute>
-      <h1 className="jumbotron text-center square">Create Course</h1>
+      <h1 className="jumbotron text-center square">講座を開設する</h1>
       <div className="py-3">
         <CourseCreateForm
           handleSubmit={handleSubmit}

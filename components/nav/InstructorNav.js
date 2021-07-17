@@ -12,7 +12,7 @@ const InstructorNav = () => {
     <div className="nav flex-column nav-pills">
       <Link href="/instructor">
         <a className={`nav-link ${current === '/instructor' && 'active'}`}>
-          Dashboard
+          ダッシュボード
         </a>
       </Link>
       <Link href="/instructor/course/create">
@@ -21,7 +21,7 @@ const InstructorNav = () => {
             current === '/instructor/course/create' && 'active'
           }`}
         >
-          Create Course
+          講座を開設する
         </a>
       </Link>
 
@@ -31,7 +31,7 @@ const InstructorNav = () => {
             current === '/instructor/revenue' && 'active'
           }`}
         >
-          Check Revenue
+          収入をチェックする
         </a>
       </Link>
     </div>

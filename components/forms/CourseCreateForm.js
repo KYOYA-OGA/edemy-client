@@ -16,8 +16,8 @@ const CourseCreateForm = ({
   editPage = false,
 }) => {
   const children = []
-  for (let i = 9.99; i <= 100.99; i++) {
-    children.push(<Option key={i.toFixed(2)}>${i.toFixed(2)}</Option>)
+  for (let i = 500; i <= 10000; i = i + 500) {
+    children.push(<Option key={i}>{i}円</Option>)
   }
   return (
     <>
@@ -28,7 +28,7 @@ const CourseCreateForm = ({
               type="text"
               name="name"
               className="form-control"
-              placeholder="name"
+              placeholder="講座名"
               value={values.name}
               onChange={handleChange}
             />
@@ -53,15 +53,15 @@ const CourseCreateForm = ({
                   value={values.paid}
                   onChange={(v) => setValues({ ...values, paid: v, price: 0 })}
                 >
-                  <Option value={true}>Paid</Option>
-                  <Option value={false}>Free</Option>
+                  <Option value={true}>有料</Option>
+                  <Option value={false}>無料</Option>
                 </Select>
               </div>
             </div>
             {values.paid && (
               <div className="form-group">
                 <Select
-                  defaultValue="$9.99"
+                  defaultValue="500円"
                   style={{ width: '100%' }}
                   onChange={(v) => setValues({ ...values, price: v })}
                   tokenSeparators={[,]}
@@ -78,7 +78,7 @@ const CourseCreateForm = ({
               type="text"
               name="category"
               className="form-control"
-              placeholder="category"
+              placeholder="カテゴリー"
               value={values.category}
               onChange={handleChange}
             />
@@ -123,7 +123,7 @@ const CourseCreateForm = ({
                 size="large"
                 shape="round"
               >
-                {values.loading ? 'Saving...' : 'Save & Continue'}
+                {values.loading ? '保存中...' : '保存して続行'}
               </Button>
             </div>
           </div>

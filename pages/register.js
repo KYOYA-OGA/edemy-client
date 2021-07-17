@@ -35,11 +35,12 @@ const RegisterPage = () => {
         email,
         password,
       })
-      toast.success('Registration successful. Please login')
+      toast.success('登録成功です！ログインしてください。')
       setName('')
       setEmail('')
       setPassword('')
       setLoading(false)
+      router.push('/login')
     } catch (err) {
       toast.error(err.response.data)
       setLoading(false)
@@ -47,7 +48,7 @@ const RegisterPage = () => {
   }
   return (
     <>
-      <h1 className="jumbotron bg-primary text-center">register</h1>
+      <h1 className="jumbotron bg-primary text-center">ユーザー登録</h1>
 
       <div className="container col-md-4 offset-md-4 pb-5">
         <form onSubmit={handleSubmit}>
@@ -58,7 +59,7 @@ const RegisterPage = () => {
             onChange={(e) => {
               setName(e.target.value)
             }}
-            placeholder="Enter name"
+            placeholder="お名前"
             required
           />
 
@@ -69,7 +70,7 @@ const RegisterPage = () => {
             onChange={(e) => {
               setEmail(e.target.value)
             }}
-            placeholder="Enter email"
+            placeholder="メールアドレス"
             required
           />
           <input
@@ -79,7 +80,7 @@ const RegisterPage = () => {
             onChange={(e) => {
               setPassword(e.target.value)
             }}
-            placeholder="Enter password"
+            placeholder="パスワード"
             required
           />
 
@@ -88,14 +89,14 @@ const RegisterPage = () => {
             className="btn btn-block btn-primary p-2"
             disabled={!name || !email || !password || loading}
           >
-            {loading ? <SyncOutlined spin /> : 'Submit'}
+            {loading ? <SyncOutlined spin /> : '登録する'}
           </button>
         </form>
 
         <p className="text-center p-3">
-          Already registered?
+          すでに登録済みですか？
           <Link href="/login">
-            <a>Login</a>
+            <a>ログイン</a>
           </Link>
         </p>
       </div>

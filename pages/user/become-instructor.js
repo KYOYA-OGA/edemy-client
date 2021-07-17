@@ -34,17 +34,18 @@ const BecomeInstructor = () => {
 
   return (
     <>
-      <h1 className="jumbotron text-center square">Become Instructor</h1>
+      <h1 className="jumbotron text-center square">
+        先生になって稼ぎましょう！
+      </h1>
       <div className="container">
         <div className="row">
-          <div className="col-md-6 offset-md-3 text-center">
+          <div className="col-md-10 offset-md-1 text-center">
             <div className="pt-4">
               <UserSwitchOutlined className="display-1 pb-3" />
               <br />
-              <h2>Setup payout to publish course on Edemy</h2>
+              <h2>Edemy上で講座を公開するための支払い設定をする</h2>
               <p className="lead text-warning">
-                Edemy partners with stripe to transfer earnings to your bank
-                account
+                EdemyではStripeを通じてあなたの銀行口座に収入を送金します
               </p>
 
               <Button
@@ -60,11 +61,11 @@ const BecomeInstructor = () => {
                   loading
                 }
               >
-                {loading ? 'Processing...' : 'Payout Setup'}
+                {loading ? '読込中...' : '支払い設定'}
               </Button>
 
               <p className="lead">
-                You will be redirected to stripe to complete onboarding process.
+                設定をするためにStripeにリダイレクトされます。
               </p>
             </div>
           </div>

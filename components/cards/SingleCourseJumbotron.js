@@ -40,11 +40,11 @@ const SingleCourseJumbotron = ({
             className="pb-4 mr-2"
             count={category}
           />
-          <p>Created by {instructor.name}</p>
-          <p>Last updated {new Date(updatedAt).toLocaleDateString()}</p>
+          <p>講師名： {instructor.name}</p>
+          <p>最終更新日： {new Date(updatedAt).toLocaleDateString()}</p>
           <h4 className="text-light">
             {paid
-              ? currencyFormatter({ amount: price, currency: 'usd' })
+              ? currencyFormatter({ amount: price, currency: 'jpy' })
               : 'Free'}
           </h4>
         </div>
@@ -61,7 +61,7 @@ const SingleCourseJumbotron = ({
                 url={lessons[0].video.Location}
                 light={image.Location}
                 width="100%"
-                height="225px"
+                height="250px"
               />
             </div>
           ) : (
@@ -86,9 +86,9 @@ const SingleCourseJumbotron = ({
             >
               {user
                 ? enrolled.status
-                  ? 'Go to course'
-                  : 'Enroll'
-                : 'Login to enroll'}
+                  ? 'コースへ'
+                  : '登録する'
+                : '登録するためにログインする'}
             </Button>
           )}
         </div>

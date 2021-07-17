@@ -8,7 +8,7 @@ const CourseCard = ({ course }) => {
     <Link href={`/course/${slug}`}>
       <a>
         <Card
-          className="mb-4"
+          className="mb-4 shadow bg-light"
           cover={
             <img
               src={image.Location}
@@ -18,11 +18,11 @@ const CourseCard = ({ course }) => {
           }
         >
           <h2 className="font-weight-bold">{name}</h2>
-          <p>by {instructor.name}</p>
+          <p>講師名 {instructor.name}</p>
           <Badge count={category} className="pb-2 mr-2" />
           <h4 className="pt-2">
             {paid
-              ? currencyFormatter({ amount: price, currency: 'usd' })
+              ? currencyFormatter({ amount: price, currency: 'jpy' })
               : 'Free'}
           </h4>
         </Card>

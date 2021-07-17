@@ -1,9 +1,14 @@
+body {
+  font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN',
+    'Hiragino Sans', Meiryo, sans-serif;
+}
+
 .square {
   border-radius: 0px;
 }
 
 .jumbotron {
-  background-image: linear-gradient(to right, #007bff, #000);
+  background-image: linear-gradient(to right, #373b44, #4286f4);
   color: #fff;
 }
 

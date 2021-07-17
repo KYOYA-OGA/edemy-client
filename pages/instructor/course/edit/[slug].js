@@ -15,7 +15,7 @@ const CourseEdit = () => {
   const [values, setValues] = useState({
     name: '',
     description: '',
-    price: '9.99',
+    price: '500',
     uploading: false,
     paid: true,
     category: '',
@@ -24,13 +24,14 @@ const CourseEdit = () => {
   })
   const [image, setImage] = useState({})
   const [preview, setPreview] = useState('')
-  const [uploadButtonText, setUploadButtonText] = useState('Upload Image')
+  const [uploadButtonText, setUploadButtonText] =
+    useState('画像をアップロードする')
 
   // state for lessons update
   const [visible, setVisible] = useState(false)
   const [current, setCurrent] = useState({})
   const [uploadVideoButtonText, setUploadVideoButtonText] =
-    useState('Upload Video')
+    useState('ビデオをアップロードする')
   const [progress, setProgress] = useState(0)
   const [uploading, setUploading] = useState(false)
 
@@ -64,14 +65,14 @@ const CourseEdit = () => {
         const { data } = await axios.post('/api/course/upload-image', {
           image: uri,
         })
-        console.log('IMAGE UPLOADED', data)
+        // console.log('IMAGE UPLOADED', data)
         // set image in the state
         setImage(data)
         setValues({ ...values, loading: false })
       } catch (err) {
         console.log(err)
         setValues({ ...values, loading: false })
-        toast('Image upload failed. Try later.')
+        toast('画像のアップロードに失敗しました。もう一度お試しください')
       }
     })
   }
@@ -81,12 +82,12 @@ const CourseEdit = () => {
       const res = await axios.post('/api/course/remove-image', { image })
       setImage({})
       setPreview('')
-      setUploadButtonText('Upload Image')
+      setUploadButtonText('画像をアップロードする')
       setValues({ ...values, loading: false })
     } catch (err) {
       console.log(err)
       setValues({ ...values, loading: false })
-      toast('Image delete failed. Try later.')
+      toast('画像の消去に失敗しました。もう一度お試しください')
     }
   }
 
@@ -98,7 +99,7 @@ const CourseEdit = () => {
         ...values,
         image,
       })
-      toast('Successfully Uploaded!')
+      toast('アップロードに成功しました!')
       // router.push('/instructor')
     } catch (err) {
       toast(err.response.data)
@@ -128,11 +129,11 @@ const CourseEdit = () => {
       ...values,
       image,
     })
-    toast('Lessons rearranged successfully')
+    toast('レッスンの編集に成功しました')
   }
 
   const handleDelete = async (index) => {
-    const answer = window.confirm('Are you sure you want to delete?')
+    const answer = window.confirm('本当に消してよろしいですか？')
     if (!answer) return
 
     let allLessons = values.lessons
@@ -199,7 +200,7 @@ const CourseEdit = () => {
 
   return (
     <InstructorRoute>
-      <h1 className="jumbotron text-center square">Update Course</h1>
+      <h1 className="jumbotron text-center square">コースをアップデートする</h1>
       <div className="py-3">
         <CourseCreateForm
           handleSubmit={handleSubmit}
@@ -216,7 +217,7 @@ const CourseEdit = () => {
       <hr />
       <div className="row pb-5">
         <div className="col lesson-list">
-          <h4>{values && values.lessons && values.lessons.length} Lessons</h4>
+          <h4>{values && values.lessons && values.lessons.length} レッスン</h4>
           <List
             onDragOver={(e) => e.preventDefault()}
             itemLayout="horizontal"
@@ -228,6 +229,7 @@ const CourseEdit = () => {
                   draggable
                   onDragStart={(e) => handleDrag(e, index)}
                   onDrop={(e) => handleDrop(e, index)}
+                  className="pointer"
                 >
                   <Item.Meta
                     onClick={() => {

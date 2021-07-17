@@ -64,7 +64,7 @@ const SingleCourse = ({ course }) => {
       setLoading(false)
       router.push(`/user/course/${data.course.slug}`)
     } catch (err) {
-      toast('Enrollment failed. Try again.')
+      toast('登録に失敗しました。もう一度お試しください')
       setLoading(false)
     }
   }

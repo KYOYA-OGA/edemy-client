@@ -31,7 +31,7 @@ const SingleCourseLessons = ({
                       setShowModal(!showModal)
                     }}
                   >
-                    Preview
+                    プレビュー
                   </span>
                 )}
               </Item>

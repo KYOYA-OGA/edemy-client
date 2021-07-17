@@ -122,11 +122,11 @@ const SingleCourse = () => {
                     className="float-right pointer"
                     onClick={markInComplete}
                   >
-                    Mark as incomplete
+                    未完了にする
                   </span>
                 ) : (
                   <span className="float-right pointer" onClick={markCompleted}>
-                    Mark as completed
+                    完了済みにする
                   </span>
                 )}
               </div>
@@ -153,7 +153,7 @@ const SingleCourse = () => {
             <div className="d-flex justify-content-center p-5">
               <div className="text-center p-5">
                 <PlayCircleOutlined className="text-primary display-1 p-5" />
-                <p className="lead">Click on the lessons to start learning</p>
+                <p className="lead">各レッスンを選択して学習を始めましょう</p>
               </div>
             </div>
           )}

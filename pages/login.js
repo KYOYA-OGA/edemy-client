@@ -51,7 +51,7 @@ const LoginPage = () => {
 
   return (
     <>
-      <h1 className="jumbotron bg-primary text-center">Login</h1>
+      <h1 className="jumbotron bg-primary text-center">ログイン</h1>
 
       <div className="container col-md-4 offset-md-4 pb-5">
         <form onSubmit={handleSubmit}>
@@ -62,7 +62,7 @@ const LoginPage = () => {
             onChange={(e) => {
               setEmail(e.target.value)
             }}
-            placeholder="Enter email"
+            placeholder="メールアドレス"
             required
           />
           <input
@@ -72,7 +72,7 @@ const LoginPage = () => {
             onChange={(e) => {
               setPassword(e.target.value)
             }}
-            placeholder="Enter password"
+            placeholder="パスワード"
             required
           />
 
@@ -81,20 +81,20 @@ const LoginPage = () => {
             className="btn btn-block btn-primary p-2"
             disabled={!email || !password || loading}
           >
-            {loading ? <SyncOutlined spin /> : 'Submit'}
+            {loading ? <SyncOutlined spin /> : 'ログイン'}
           </button>
         </form>
 
         <p className="text-center pt-3">
-          Not yet registered?
+          まだ登録していませんか？
           <Link href="/register">
-            <a>Register</a>
+            <a className="ml-2">登録</a>
           </Link>
         </p>
 
         <p className="text-center ">
           <Link href="/forgot-password">
-            <a className="text-danger">Forgot password?</a>
+            <a className="text-danger">パスワードをお忘れですか?</a>
           </Link>
         </p>
       </div>

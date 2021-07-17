@@ -44,15 +44,14 @@ const Revenue = () => {
         <div className="row pt-2">
           <div className="col-md-8 offset-md-2 bg-light p-5">
             <h2>
-              Revenue report <DollarOutlined className="float-right" />
+              収支報告 <DollarOutlined className="float-right" />
             </h2>
             <small>
-              You get paid directly from stripe to your bank account every 48
-              hour
+              48時間おきにStripeより直接あなたの銀行口座に支払われます
             </small>
             <hr />
             <h4>
-              Pending balance{' '}
+              支払い待ちの金額
               {balance.pending &&
                 balance.pending.map((item, index) => {
                   return (
@@ -62,10 +61,10 @@ const Revenue = () => {
                   )
                 })}
             </h4>
-            <small>For last 48 hours</small>
+            <small>48時間以内</small>
             <hr />
             <h4>
-              Payouts{' '}
+              支払い設定{' '}
               {!loading ? (
                 <SettingOutlined
                   className="float-right pointer"
@@ -74,9 +73,7 @@ const Revenue = () => {
               ) : (
                 <SyncOutlined spin className="float-right" />
               )}
-              <small>
-                Update your stripe account details or view previous payouts
-              </small>
+              <small>Stripeの設定を更新して過去の支払いを確認する</small>
             </h4>
           </div>
         </div>

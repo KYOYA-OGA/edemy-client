@@ -26,7 +26,8 @@ const CourseView = () => {
     video: {},
   })
   const [uploading, setUploading] = useState(false)
-  const [uploadButtonText, setUploadButtonText] = useState('Upload Video')
+  const [uploadButtonText, setUploadButtonText] =
+    useState('ビデオをアップロードする')
   const [progress, setProgress] = useState(0)
   const [students, setStudents] = useState(0)
 
@@ -68,10 +69,10 @@ const CourseView = () => {
       setUploadButtonText('Upload video')
       setVisible(false)
       setCourse(data)
-      toast('Lesson added')
+      toast('レッスンが追加されました')
     } catch (err) {
       console.log(err)
-      toast('Lesson added failed')
+      toast('レッスンの追加に失敗しました。もう一度お試しください。')
     }
   }
 
@@ -174,11 +175,11 @@ const CourseView = () => {
                   </div>
 
                   <div className="d-flex pt-4">
-                    <Tooltip title={`${students} Enrolled`}>
+                    <Tooltip title={`生徒は${students}人です`}>
                       <UserSwitchOutlined className="h5 pointer text-info mr-4" />
                     </Tooltip>
 
-                    <Tooltip title="Edit">
+                    <Tooltip title="編集する">
                       <EditOutlined
                         onClick={() =>
                           router.push(`/instructor/course/edit/${slug}`)
@@ -188,18 +189,18 @@ const CourseView = () => {
                     </Tooltip>
 
                     {course.lessons && course.lessons.length < 5 ? (
-                      <Tooltip title="Min 5 lessons required to publish">
+                      <Tooltip title="講座を公開するためには5レッスンが必要です">
                         <QuestionOutlined className="h5 pointer text-danger" />
                       </Tooltip>
                     ) : course.published ? (
-                      <Tooltip title="Unpublish">
+                      <Tooltip title="非公開にする">
                         <CloseOutlined
                           onClick={(e) => handleUnpublish(e, course._id)}
                           className="h5 pointer text-danger"
                         />
                       </Tooltip>
                     ) : (
-                      <Tooltip title="Publish">
+                      <Tooltip title="公開する">
                         <CheckOutlined
                           onClick={(e) => handlePublish(e, course._id)}
                           className="h5 pointer text-success"
@@ -225,7 +226,7 @@ const CourseView = () => {
                 icon={<UploadOutlined />}
                 size="large"
               >
-                Add Lesson
+                レッスンを追加する
               </Button>
             </div>
             <br />
@@ -251,7 +252,7 @@ const CourseView = () => {
             <div className="row pb-5">
               <div className="col lesson-list">
                 <h4>
-                  {course && course.lessons && course.lessons.length} Lessons
+                  {course && course.lessons && course.lessons.length} レッスン
                 </h4>
                 <List
                   itemLayout="horizontal"
@@ -262,7 +263,7 @@ const CourseView = () => {
                         <Item.Meta
                           avatar={<Avatar>{index + 1}</Avatar>}
                           title={item.title}
-                        ></Item.Meta>
+                        />
                       </Item>
                     )
                   }}

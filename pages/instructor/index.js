@@ -21,8 +21,7 @@ const InstructorIndex = () => {
 
   return (
     <InstructorRoute>
-      <h1 className="jumbotron text-center square">Instructor Dashboard</h1>
-      {/* <pre>{JSON.stringify(courses, null, 4)}</pre> */}
+      <h1 className="jumbotron text-center square">先生用ダッシュボード</h1>
       {courses &&
         courses.map((course) => {
           return (
@@ -45,19 +44,19 @@ const InstructorIndex = () => {
                         </a>
                       </Link>
                       <p style={{ marginTop: '-10px' }}>
-                        {course.lessons.length} Lessons
+                        {course.lessons.length} レッスン
                       </p>
                       {course.lessons.length < 5 ? (
                         <p style={myStyle} className="text-warning">
-                          At least 5 lessons required to publish a course
+                          講座を公開するためには最低でも5レッスンが必要です。
                         </p>
                       ) : course.published ? (
                         <p style={myStyle} className="text-success">
-                          Your course is live in the marketplace
+                          講座は公開中です。
                         </p>
                       ) : (
                         <p style={myStyle} className="text-success">
-                          Your course is ready to be published
+                          講座を公開する準備ができました。
                         </p>
                       )}
                     </div>

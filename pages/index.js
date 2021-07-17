@@ -16,7 +16,7 @@ const IndexPage = ({ courses }) => {
   return (
     <>
       <h1 className="jumbotron bg-primary text-center">
-        Online Education Market Place
+        学ぶ人たちがつながるためのプラットフォーム
       </h1>
       <div className="container-fluid">
         <div className="row">

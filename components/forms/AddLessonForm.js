@@ -19,7 +19,7 @@ const AddLessonForm = ({
           className="form-control square"
           onChange={(e) => setValues({ ...values, title: e.target.value })}
           value={values.title}
-          placeholder="Title"
+          placeholder="タイトル"
           autoFocus
           required
         />
@@ -29,7 +29,7 @@ const AddLessonForm = ({
           rows="7"
           onChange={(e) => setValues({ ...values, content: e.target.value })}
           value={values.content}
-          placeholder="Content"
+          placeholder="内容"
         ></textarea>
 
         <div className="d-flex justify-content-center">
@@ -62,7 +62,7 @@ const AddLessonForm = ({
           loading={uploading}
           shape="round"
         >
-          Save
+          保存
         </Button>
       </form>
     </div>

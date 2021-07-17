@@ -33,7 +33,7 @@ const ForgotPasswordPage = () => {
       setLoading(true)
       const { data } = await axios.post('/api/forgot-password', { email })
       setSuccess(true)
-      toast('Check your email for the secret code')
+      toast('メールの記載されたシークレットコードを確認してください')
       setLoading(false)
     } catch (err) {
       setLoading(false)
@@ -54,7 +54,8 @@ const ForgotPasswordPage = () => {
       setCode('')
       setNewPassword('')
       setLoading(false)
-      toast('Great! Now you can login with your new password.')
+      toast('素晴らしい! これで新しいパスワードでログインできます。')
+      router.push('/login')
     } catch (err) {
       setLoading(false)
       toast(err.response.data)
@@ -64,7 +65,10 @@ const ForgotPasswordPage = () => {
   return (
     <>
       <h1 className="jumbotron text-center bg-primary square">
-        Forgot Password
+        パスワードをお忘れですか？
+        <span className="h3">
+          （※準備中のため検証済みのアドレスのみに送信されます）
+        </span>
       </h1>
       <div className="container col-md-4 offset-md-4 pb-5">
         <form onSubmit={success ? handleResetPassword : handleSubmit}>
@@ -73,7 +77,7 @@ const ForgotPasswordPage = () => {
             className="form-control mb-4 p-4"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter email"
+            placeholder="メールアドレスを入力してください"
             required
           />
           {success && (
@@ -83,7 +87,7 @@ const ForgotPasswordPage = () => {
                 className="form-control mb-4 p-4"
                 value={code}
                 onChange={(e) => setCode(e.target.value)}
-                placeholder="Enter secret code"
+                placeholder="シークレットコードを入力してください"
                 required
               />
 
@@ -92,7 +96,7 @@ const ForgotPasswordPage = () => {
                 className="form-control mb-4 p-4"
                 value={newPassword}
                 onChange={(e) => setNewPassword(e.target.value)}
-                placeholder="Enter new password"
+                placeholder="新しいパスワードを入力してください"
                 required
               />
             </>

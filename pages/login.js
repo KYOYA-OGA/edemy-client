@@ -33,8 +33,7 @@ const LoginPage = () => {
         email,
         password,
       })
-      // console.log('login response', data)
-      // setLoading(false)
+      setLoading(false)
       dispatch({
         type: 'LOGIN',
         payload: data,
